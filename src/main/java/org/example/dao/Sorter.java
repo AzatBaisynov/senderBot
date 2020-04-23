@@ -31,7 +31,7 @@ public class Sorter {
         Set<String> hashKeys = map.keySet();
         int i = 1;
         for (String id : hashKeys){
-            System.out.println(i + ") " + id + " " + map.get(id).substring(0,11) + " " + map.get(id).substring(12));
+            System.out.println(i + ") " + id + " " + map.get(id).substring(0,10) + " " + map.get(id).substring(11));
             i++;
         }
     }
