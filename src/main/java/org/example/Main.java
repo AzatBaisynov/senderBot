@@ -17,37 +17,17 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             System.out.println("Добро пожаловать\n" +
                     "1 - все юзеры\n" +
-                    "2 - отправить смс всем пользователям\n" +
-                    "3 - все запросы\n" +
-                    "4 - меню");
+                    "2 - последний запрос\n" +
+                    "3 - все запросы\n");
             int a = sc.nextInt();
             sc.nextLine();
             switch (a) {
 
                 case 1: Sorter.sortById();
                 break;
-                case 2: System.out.println("Введите текст сообщения");
-                        String b = sc.nextLine();
-                        ApiContextInitializer.init();
-                        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-                        try {
-                            Bot bot = new Bot();
-//                            List<String> list = Sorter.sortById();
-//                            list.forEach(x ->  bot.sendMsgNoReplyNoButtons(x, b));
-                            bot.sendMsgNoReplyNoButtons("1063515718", b);
-                            telegramBotsApi.registerBot(bot);
-                        } catch (TelegramApiRequestException e) {
-                            e.printStackTrace();
-                        }
-
+                case 2: Sorter.sortByLastDate();
                 break;
                 case 3: Sorter.getAllRequests();
-                break;
-                case 4: System.out.println("Добро пожаловать\n" +
-                        "1 - все юзеры\n" +
-                        "2 - отправить смс всем пользователям\n" +
-                        "3 - все запросы\n" +
-                        "4 - меню");
                 break;
             }
         }

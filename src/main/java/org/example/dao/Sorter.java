@@ -24,5 +24,15 @@ public class Sorter {
         return list;
     }
 
-
+    public static void sortByLastDate() throws IOException {
+        LinkedList<Request> reqs =  LogsFileReader.makeUserList();
+        HashMap<String, String> map = new HashMap<>();
+        reqs.forEach(x -> map.put(x.getId(), x.getTime()));
+        Set<String> hashKeys = map.keySet();
+        int i = 1;
+        for (String id : hashKeys){
+            System.out.println(i + ") " + id + " " + map.get(id));
+            i++;
+        }
+    }
 }
